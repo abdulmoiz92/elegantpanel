@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Elegantpanel</title>
+    <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
+            <%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" %>
+                <%= stylesheet_link_tag 'application', media: 'all',
+    'data-turbolinks-track': 'reload' %>
+                    <%= javascript_pack_tag 'application','data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+    <%= render 'dashboard/navbar' %>
+        <div class="columns">
+            <div class="column is-1">
+                <%= render 'dashboard/sidebar' %>
+            </div>
+
+            <div class="column is-11">
+                <%= yield %>
+            </div>
+        </div>
+</body>
+
+</html>

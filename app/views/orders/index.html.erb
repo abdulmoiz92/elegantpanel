@@ -1,0 +1,55 @@
+<section style="margin-left: 8%;" class="section">
+    <div class="container">
+        <h1 class="title is-2">Orders</h1>
+        <%= link_to  "Add New", new_order_path, class: "button is-link is-pulled-right mb-5" %>
+            <table class="table is-bordered is-striped is-fullwidth">
+                <tr class="is-selected">
+                    <th>Name</th>
+                    <th>Product Type</th>
+                    <th>Quantity</th>
+                    <th>Buy/Sell</th>
+                    <th>Platform Price</th>
+                    <th>Client Price</th>
+                    <th>Date Time</th>
+                    <th>Actions</th>
+                </tr>
+                <% @orders.each do |order| %>
+                    <tr>
+                        <td>
+                            <%= order.name %>
+                        </td>
+                        <td>
+                            <%= order.producttype %>
+                        </td>
+                        <td>
+                            <%= order.quantity %>
+                        </td>
+                        <td>
+                            <%= order.buysell %>
+                        </td>
+                        <td>
+                            <%= order.platform %>
+                        </td>
+                        <td>
+                            <%= order.client %>
+                        </td>
+                        <td>
+                            <%= order.time %> <br/>
+                                <%= order.created_at.to_date %>
+                        </td>
+                        <td>
+                            <a class=""><span class="icon is-small ml-3 mr-3"><i class="far fa-eye"></i></span
+          ></a>
+                            <%= link_to edit_order_path(order) do %>
+                                <span class="icon is-small mr-3">
+              <i class="fa fa-edit"></i></span>
+                                <% end %>
+                            <%= link_to order_path(order), method: :delete, data: {confirm: "Are You Sure You Want To Delete ?"} do %>
+                                    <span class="icon is-small"> <i class="fa fa-trash"></i></span>
+                                    <% end %>        
+                        </td>
+                    </tr>
+                    <% end %>
+            </table>
+    </div>
+</section>

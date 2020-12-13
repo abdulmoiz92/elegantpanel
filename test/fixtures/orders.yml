@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  type: 
+  quantity: MyString
+  buysell: MyString
+  platform: 1.5
+  client: 1.5
+  time: MyString
+
+two:
+  name: MyString
+  type: 
+  quantity: MyString
+  buysell: MyString
+  platform: 1.5
+  client: 1.5
+  time: MyString
