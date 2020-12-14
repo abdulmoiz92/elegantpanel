@@ -1,0 +1,62 @@
+<div class="column">
+    <div class="box notification is-danger">
+        <div class="title is-5">UnCompleted Sell Orders</div>
+        <div class="title">
+            <%= @uncompletedsellsquantity %> Ounces</div>
+        <div class="level">
+            <div class="level-item">
+                <div class="">
+                    <div class="heading">In Kg</div>
+                    <div class="title is-3">
+                        <%= @uncompletedsellsinkg %>
+                    </div>
+                </div>
+            </div>
+            <div class="level-item">
+                <div class="">
+                    <div class="heading">In Gram</div>
+                    <div class="title is-3">
+                        <%= @uncompletedsellsingram %>
+                    </div>
+                </div>
+            </div>
+            <div class="level-item">
+                <div class="">
+                    <div class="heading">In TT Bars</div>
+                    <div class="title is-3">
+                        <%= @uncompletedsellsintt %>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="level">
+            <div class="level-item">
+                <div class="">
+                    <div class="heading">Total In Kg</div>
+                    <div class="title is-3">
+                        <%= (@uncompletedsellsquantity > 320 ? (@uncompletedsellsquantity / 31.1) : (@uncompletedsellsquantity / 32)).round(2)  %>
+                    </div>
+                </div>
+            </div>
+            <div class="level-item">
+                <div class="">
+                    <div class="heading">Total In Gram</div>
+                    <div class="title is-3">
+                        <%= (@uncompletedsellsquantity > 312.5 ? (@uncompletedsellsquantity * 31.1) : (@uncompletedsellsquantity * 32)).round(2) %>
+                    </div>
+                </div>
+            </div>
+            <div class="level-item">
+                <div class="">
+                    <div class="heading">Total In TT Bars</div>
+                    <div class="title is-3">
+                        <%= (@uncompletedsellsquantity / 3.79).round(2) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

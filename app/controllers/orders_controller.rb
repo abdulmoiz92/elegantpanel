@@ -45,6 +45,6 @@ class OrdersController < ApplicationController
     private
 
     def order_params
-        params.require(:order).permit(:name,:producttype,:quantity,:buysell,:platform,:client,:time)  
+        params.require(:order).permit(:name,:producttype,:quantity,:buysell,:platform,:client,:time,:finished,:ordertype)  
       end
 end

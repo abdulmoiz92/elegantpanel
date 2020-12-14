@@ -1,4 +1,4 @@
-<section style="margin-left: 8%;" class="section">
+<section style="margin-left: 5%;" class="section">
     <div class="container">
         <h1 class="title is-2">Orders</h1>
         <%= link_to  "Add New", new_order_path, class: "button is-link is-pulled-right mb-5" %>
@@ -7,14 +7,16 @@
                     <th>Name</th>
                     <th>Product Type</th>
                     <th>Quantity</th>
+                    <th>Order Type</th>
                     <th>Buy/Sell</th>
                     <th>Platform Price</th>
                     <th>Client Price</th>
                     <th>Date Time</th>
+                    <th>Finished</th>
                     <th>Actions</th>
                 </tr>
                 <% @orders.each do |order| %>
-                    <tr>
+                    <tr class="<%= 'is-order-completed' if order.finished == true %>">
                         <td>
                             <%= order.name %>
                         </td>
@@ -23,6 +25,9 @@
                         </td>
                         <td>
                             <%= order.quantity %>
+                        </td>
+                        <td>
+                            <%= order.ordertype %>
                         </td>
                         <td>
                             <%= order.buysell %>
@@ -37,19 +42,18 @@
                             <%= order.time %> <br/>
                                 <%= order.created_at.to_date %>
                         </td>
+                        <td><%= order.finished == true ? "Yes" : "No" %></td>
                         <td>
-                            <a class=""><span class="icon is-small ml-3 mr-3"><i class="far fa-eye"></i></span
-          ></a>
                             <%= link_to edit_order_path(order) do %>
                                 <span class="icon is-small mr-3">
               <i class="fa fa-edit"></i></span>
                                 <% end %>
-                            <%= link_to order_path(order), method: :delete, data: {confirm: "Are You Sure You Want To Delete ?"} do %>
-                                    <span class="icon is-small"> <i class="fa fa-trash"></i></span>
-                                    <% end %>        
+                                    <%= link_to order_path(order), method: :delete, data: {confirm: "Are You Sure You Want To Delete ?"} do %>
+                                        <span class="icon is-small"> <i class="fa fa-trash"></i></span>
+                                        <% end %>
                         </td>
                     </tr>
                     <% end %>
             </table>
-    </div>
+            </div>
 </section>

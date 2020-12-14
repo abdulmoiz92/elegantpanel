@@ -282,6 +282,15 @@ $table-background-color: #000;
     background-color: #333 !important;
 }
 
+.table tr.is-order-completed {
+    background-color: #32cd32 !important;
+    color: #fff;
+}
+
+.table tr.is-order-completed i {
+    color: #fff;
+}
+
 // label.select.optional.label:after {
 //     display: none;
 // }

@@ -10,18 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_13_112633) do
+ActiveRecord::Schema.define(version: 2020_12_14_213424) do
 
   create_table "orders", force: :cascade do |t|
     t.string "name"
     t.string "producttype"
-    t.string "quantity"
     t.string "buysell"
     t.float "platform"
     t.float "client"
     t.string "time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "finished", default: false
+    t.float "quantity"
+    t.string "ordertype"
   end
 
 end

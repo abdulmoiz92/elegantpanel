@@ -1,0 +1,59 @@
+<div class="column">
+    <div class="box notification is-link">
+        <div class="title is-5">Buy Order Total</div>
+        <div class="title">
+            <%= @buysquantity %> Ounces</div>
+        <div class="level">
+            <div class="level-item">
+                <div class="">
+                    <div class="heading">In Kg</div>
+                    <div class="title is-3">
+                        <%= @buysinkg %>
+                    </div>
+                </div>
+            </div>
+            <div class="level-item">
+                <div class="">
+                    <div class="heading">In Grams</div>
+                    <div class="title is-3">
+                        <%= @buysingram %>
+                    </div>
+                </div>
+            </div>
+            <div class="level-item">
+                <div class="">
+                    <div class="heading">In TT Bar</div>
+                    <div class="title is-3">
+                        <%= @buysintt %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="level">
+            <div class="level-item">
+                <div class="">
+                    <div class="heading">Total In Kg</div>
+                    <div class="title is-3">
+                        <%= (@buysquantity > 320 ? ( @buysquantity / 31.1 ) : ( @buysquantity / 32 )).round(2) %>
+                    </div>
+                </div>
+            </div>
+            <div class="level-item">
+                <div class="">
+                    <div class="heading">Total In Grams</div>
+                    <div class="title is-3">
+                        <%= (@buysquantity > 312.5 ? ( @buysquantity * 31.1 ) : ( @buysquantity * 32 )).round(2) %>
+                    </div>
+                </div>
+            </div>
+            <div class="level-item">
+                <div class="">
+                    <div class="heading">Total In TT Bar</div>
+                    <div class="title is-3">
+                        <%= (@buysquantity / 3.79).round(2) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

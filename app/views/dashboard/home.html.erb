@@ -1,111 +1,15 @@
 <main class="main">
-<div class="columns">
-    <div class="column">
-        <div class="box notification is-primary">
-            <div class="heading">Top Seller Total</div>
-            <div class="title">56,950</div>
-            <div class="level">
-                <div class="level-item">
-                    <div class="">
-                        <div class="heading">Sales $</div>
-                        <div class="title is-5">250K</div>
-                    </div>
-                </div>
-                <div class="level-item">
-                    <div class="">
-                        <div class="heading">Overall $</div>
-                        <div class="title is-5">750K</div>
-                    </div>
-                </div>
-                <div class="level-item">
-                    <div class="">
-                        <div class="heading">Sales %</div>
-                        <div class="title is-5">25%</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="columns">
+        <%= render 'dashboard/boxes/buytotal' %>
+            <%= render 'dashboard/boxes/selltotal' %>
     </div>
-    <div class="column">
-        <div class="box notification is-warning">
-            <div class="heading">Top Seller Total</div>
-            <div class="title">56,950</div>
-            <div class="level">
-                <div class="level-item">
-                    <div class="">
-                        <div class="heading">Sales $</div>
-                        <div class="title is-5">250K</div>
-                    </div>
-                </div>
-                <div class="level-item">
-                    <div class="">
-                        <div class="heading">Overall $</div>
-                        <div class="title is-5">750K</div>
-                    </div>
-                </div>
-                <div class="level-item">
-                    <div class="">
-                        <div class="heading">Sales %</div>
-                        <div class="title is-5">25%</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
-<div class="columns mt-4">
-    <div class="column">
-        <div class="box notification is-success">
-            <div class="heading">Top Seller Total</div>
-            <div class="title">56,950</div>
-            <div class="level">
-                <div class="level-item">
-                    <div class="">
-                        <div class="heading">Sales $</div>
-                        <div class="title is-5">250K</div>
-                    </div>
-                </div>
-                <div class="level-item">
-                    <div class="">
-                        <div class="heading">Overall $</div>
-                        <div class="title is-5">750K</div>
-                    </div>
-                </div>
-                <div class="level-item">
-                    <div class="">
-                        <div class="heading">Sales %</div>
-                        <div class="title is-5">25%</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="columns mt-4">
+        <%= render 'dashboard/boxes/uncompletebuy' %>
+            <%= render 'dashboard/boxes/uncompletesell' %>
     </div>
-    <div class="column">
-        <div class="box notification is-danger">
-            <div class="heading">Top Seller Total</div>
-            <div class="title">56,950</div>
-            <div class="level">
-                <div class="level-item">
-                    <div class="">
-                        <div class="heading">Sales $</div>
-                        <div class="title is-5">250K</div>
-                    </div>
-                </div>
-                <div class="level-item">
-                    <div class="">
-                        <div class="heading">Overall $</div>
-                        <div class="title is-5">750K</div>
-                    </div>
-                </div>
-                <div class="level-item">
-                    <div class="">
-                        <div class="heading">Sales %</div>
-                        <div class="title is-5">25%</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="columns mt-4">
+        <%= render 'dashboard/boxes/profits' %>
+            <div class="column"></div>
     </div>
-</div>
 </main>
