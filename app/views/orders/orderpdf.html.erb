@@ -1,0 +1,54 @@
+<section class="section">
+    <h1 style="text-decoration: underline;" class="title is-2 mb-3 has-text-centered">ELEGANT STAR GOLD</h1>
+    <h4 class="title is-5 has-text-centered mb-3">Office F61, 3rd Floor,Zone I,Gold Centre</h4>
+    <h4 class="title is-5 has-text-centered mb-5">AL Ras, Gold Souq</h4>
+    <table class="table is-bordered is-striped is-fullwidth">
+        <tr class="is-selected">
+            <th>Name</th>
+            <th>Product Type</th>
+            <th>Quantity</th>
+            <th>Order Type</th>
+            <th>Buy/Sell</th>
+            <th>Platform Price</th>
+            <th>Client Price</th>
+            <th>Date Time</th>
+            <th>Completed</th>
+            <th>In Account</th>
+        </tr>
+        <% @orders.each do |order| %>
+            <tr class="<%= 'is-order-completed' if order.finished == true %>">
+                <td>
+                    <%= order.name %>
+                </td>
+                <td>
+                    <%= order.producttype %>
+                </td>
+                <td>
+                    <%= order.quantity %>
+                </td>
+                <td>
+                    <%= order.ordertype %>
+                </td>
+                <td>
+                    <%= order.buysell %>
+                </td>
+                <td>
+                    <%= order.platform %>
+                </td>
+                <td>
+                    <%= order.client %>
+                </td>
+                <td>
+                    <%= order.time %> <br/>
+                        <%= order.created_at.to_date %>
+                </td>
+                <td>
+                    <%= order.finished == true ? "Yes" : "No" %>
+                </td>
+                <td>
+                    <%= order.in_account == true ? "Yes" : "No" %>
+                </td>
+            </tr>
+            <% end %>
+    </table>
+</section>

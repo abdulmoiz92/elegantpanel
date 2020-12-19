@@ -1,4 +1,7 @@
 class DashboardController < ApplicationController
+  def search
+  end  
+
    def home
       @buystotal = 0
       @buysquantity = 0
@@ -20,24 +23,46 @@ class DashboardController < ApplicationController
       @uncompletedsellsingram = 0
       @uncompletedsellsintt = 0
       @uncompletedorderscommission = 0
+      @completedbuyordersaverage = 0
+      @completedsellordersaverage = 0
+      @uncompletedbuyordersaverage = 0
+      @uncompletedsellordersaverage = 0
       @orders = Order.all.order("created_at DESC")
+      @search = params["search"]
+      if @search.present?
+        @name = @search['name']
+        @producttype = @search['producttype']
+        @startdate = @search['startdate']
+        @enddate = @search['enddate'] == "" ? Date.today : @search['enddate']
+        if @name != ""
+         @orders = @orders.where('lower(name) = ?', @name.downcase)
+        end
+        if @producttype != ""
+         @orders = @orders.where('lower(producttype) = ?', @producttype.downcase)
+        end
+        if @startdate != ""
+          @orders = @orders.where(created_at: @startdate.to_time..@enddate)
+        end  
+      end  
       @orders.each do |order|
         if order.buysell == "Buy" && order.finished == true
-         @buystotal = @buystotal + (order.platform * order.quantity)
-         @buysquantity = @buysquantity + order.quantity
-         if order.ordertype == "Kg"
+          @buystotal = @buysquantity + (order.platform * order.quantity)
+          @buysquantity = @buysquantity + order.quantity
+          @completedbuyordersaverage = @completedbuyordersaverage + (order.client * order.quantity)
+          if order.ordertype == "Kg"
           @buysinkg = @buysinkg + ((order.quantity > 320 ? order.quantity / 31.1 : order.quantity / 32).round(2))
-         end 
-         if order.ordertype == "Gram"
-          @buysingram = @buysingram + ((order.quantity > 312.5 ? order.quantity * 31.1 : order.quantity * 32 ).round(2))
-         end 
-         if order.ordertype == "TT Bar"
-          @buysintt = @buysintt + ((order.quantity / 3.79).round(2))
-         end 
-        end
+          end 
+          if order.ordertype == "Gram"
+           @buysingram = @buysingram + ((order.quantity > 312.5 ? order.quantity * 31.1 : order.quantity * 32 ).round(2))
+          end 
+          if order.ordertype == "TT Bar"
+           @buysintt = @buysint + ((order.quantity / 3.79).round(2))
+          end 
+       end
         if order.buysell == "Sell" && order.finished == true
           @sellstotal = @sellstotal + (order.platform * order.quantity)
           @sellsquantity = @sellsquantity + order.quantity
+          @completedsellordersaverage = @completedsellordersaverage + (order.client * order.quantity)
           if order.ordertype == "Kg"
             @sellsinkg = @sellsinkg + ((order.quantity > 320 ? order.quantity / 31.1 : order.quantity / 32).round(2))
           end
@@ -64,6 +89,7 @@ class DashboardController < ApplicationController
         uncompletedsellscommission = 0
         if order.buysell == "Buy"
          @uncompletedbuysquantity = @uncompletedbuysquantity + (order.quantity)
+         @uncompletedbuyordersaverage = @uncompletedbuyordersaverage + (order.client * order.quantity)
          uncompletedbuyscommission = uncompletedbuyscommission + ((order.client- order.platform) * order.quantity)
          if order.ordertype == "Kg"
           @uncompletedbuysinkg = @uncompletedbuysinkg + ((order.quantity > 320 ? order.quantity / 31.1 : order.quantity / 32).round(2))
@@ -80,6 +106,7 @@ class DashboardController < ApplicationController
        if order.buysell == "Sell"
         @uncompletedsellsquantity = @uncompletedsellsquantity + (order.quantity)
         uncompletedsellscommission = uncompletedsellscommission + ((order.platform - order.client) * order.quantity)
+        @uncompletedsellordersaverage = @uncompletedsellordersaverage + (order.client * order.quantity)
         if order.ordertype == "Kg"
           @uncompletedsellsinkg = @uncompletedsellsinkg + ((order.quantity > 320 ? order.quantity / 31.1 : order.quantity / 32).round(2))
          end
@@ -92,6 +119,18 @@ class DashboardController < ApplicationController
        end 
        @uncompletedorderscommission = @uncompletedorderscommission + uncompletedsellscommission + uncompletedbuyscommission
       end   
-   end 
+   end
+   if @buysquantity != 0
+   @completedbuyordersaverage = @completedbuyordersaverage / @buysquantity
+   end
+   if @sellsquantity != 0 
+   @completedsellordersaverage = @completedsellordersaverage / @sellsquantity
+   end
+   if @uncompletedbuysquantity != 0
+   @uncompletedbuyordersaverage = @uncompletedbuyordersaverage / @uncompletedbuysquantity
+   end
+   if @uncompletedsellsquantity != 0
+   @uncompletedsellordersaverage = @uncompletedsellordersaverage / @uncompletedsellsquantity
+   end
 end
 end

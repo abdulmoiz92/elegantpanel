@@ -3,13 +3,14 @@
         <div class="title is-5">UnCompleted Buy Orders</div>
         <div class="title">
             <%= @uncompletedbuysquantity %> Ounces</div>
-
+        <div class="title">
+           $ <%= @uncompletedbuyordersaverage.round(2) %></div>    
         <div class="level">
             <div class="level-item">
                 <div class="">
                     <div class="heading">In Kg</div>
                     <div class="title is-3">
-                        <%= @uncompletedbuysinkg %>
+                        <%= @uncompletedbuysinkg.round(2) %>
                     </div>
                 </div>
             </div>
@@ -17,7 +18,7 @@
                 <div class="">
                     <div class="heading">In Gram</div>
                     <div class="title is-3">
-                        <%= @uncompletedbuysingram %>
+                        <%= @uncompletedbuysingram.round(2) %>
                     </div>
                 </div>
             </div>
@@ -25,7 +26,7 @@
                 <div class="">
                     <div class="heading">In TT Bars</div>
                     <div class="title is-3">
-                        <%= @uncompletedbuysintt %>
+                        <%= @uncompletedbuysintt.round(2) %>
                     </div>
                 </div>
             </div>

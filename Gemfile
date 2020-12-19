@@ -37,6 +37,15 @@ gem 'bulma-rails', '~> 0.9.1'
 #Forms Extension
 gem 'simple_form', '~> 5.0', '>= 5.0.3'
 
+#pagination
+gem 'will_paginate', '~> 3.3'
+
+# Wicked PDF
+gem 'wicked_pdf'
+
+#WK HTML To PDF
+gem 'wkhtmltopdf-binary'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

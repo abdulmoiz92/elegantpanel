@@ -3,12 +3,14 @@
         <div class="title is-5">UnCompleted Sell Orders</div>
         <div class="title">
             <%= @uncompletedsellsquantity %> Ounces</div>
+        <div class="title">
+           $ <%= @uncompletedsellordersaverage.round(2) %></div>    
         <div class="level">
             <div class="level-item">
                 <div class="">
                     <div class="heading">In Kg</div>
                     <div class="title is-3">
-                        <%= @uncompletedsellsinkg %>
+                        <%= @uncompletedsellsinkg.round(2) %>
                     </div>
                 </div>
             </div>
@@ -16,7 +18,7 @@
                 <div class="">
                     <div class="heading">In Gram</div>
                     <div class="title is-3">
-                        <%= @uncompletedsellsingram %>
+                        <%= @uncompletedsellsingram.round(2) %>
                     </div>
                 </div>
             </div>
@@ -24,7 +26,7 @@
                 <div class="">
                     <div class="heading">In TT Bars</div>
                     <div class="title is-3">
-                        <%= @uncompletedsellsintt %>
+                        <%= @uncompletedsellsintt.round(2) %>
                     </div>
                 </div>
             </div>

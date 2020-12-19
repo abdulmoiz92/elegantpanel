@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_14_213424) do
+ActiveRecord::Schema.define(version: 2020_12_19_090418) do
 
   create_table "orders", force: :cascade do |t|
     t.string "name"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2020_12_14_213424) do
     t.boolean "finished", default: false
     t.float "quantity"
     t.string "ordertype"
+    t.boolean "in_account", default: false
   end
 
 end

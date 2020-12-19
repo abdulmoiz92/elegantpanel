@@ -1,28 +1,31 @@
 <aside id="main-sidebar" class="aside pr-5 pl-5">
-    <nav class="menu active-menu">
-        <p class="menu-label">General</p>
-        <ul class="menu-list">
-            <li>
-                <%= link_to root_path, class: "#{'is-active' if current_page? root_path}" do %>
-                    <span class="icon is-small"><i class="fas fa-tachometer-alt"></i></span>
-                    <span class="menu-text">Dashboard</span>
-                    <% end %>
-            </li>
+  <nav class="menu active-menu">
+    <p class="menu-label">General</p>
+    <ul class="menu-list">
+      <li>
+        <%= link_to root_path, class: "#{'is-active' if current_page? root_path}" do %>
+          <span class="icon is-small"><i class="fas fa-tachometer-alt"></i></span>
+          <span class="menu-text">Dashboard</span>
+        <% end %>
+        <ul>
+          <li><%= link_to "Search", "searchstats", class: "#{'is-active' if current_page? "/searchstats"}" %></li>
         </ul>
-        <p class="menu-label">Features</p>
-        <ul class="menu-list">
-            <li>
-                <%= link_to orders_path, class: "#{'is-active' if controller_name == "orders"}" do %>
-                    <span class="icon is-small"><i class="far fa-gem"></i></span>
-                    <span class="menu-text">Orders</span>
-                <% end %>
-            </li>
-            <li>
-                <a>
-                    <span class="icon is-small"><i class="fas fa-users"></i></span>
-                    <span class="menu-text">Customers</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
+      </li>
+    </ul>
+    <p class="menu-label">Features</p>
+    <ul class="menu-list">
+      <li>
+        <%= link_to orders_path, class: "#{'is-active' if controller_name == "orders"}" do %>
+          <span class="icon is-small"><i class="far fa-gem"></i></span>
+          <span class="menu-text">Orders</span>
+        <% end %>
+      </li>
+      <li>
+        <a>
+          <span class="icon is-small"><i class="fas fa-users"></i></span>
+          <span class="menu-text">Customers</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
 </aside>

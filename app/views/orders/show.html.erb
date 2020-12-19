@@ -1,1 +1,46 @@
-<h1>Show Page</h1>
+<div style="margin-left: 6%;" class="section">
+<%= link_to 'DOWNLOAD PDF', order_path(@order, format: :pdf) %>
+    <table class="table is-bordered is-striped is-fullwidth">
+            <tr class="is-selected">
+                <th>Name</th>
+                <th>Product Type</th>
+                <th>Quantity</th>
+                <th>Order Type</th>
+                <th>Buy/Sell</th>
+                <th>Platform Price</th>
+                <th>Client Price</th>
+                <th>Date Time</th>
+                <th>Finished</th>
+            </tr>
+                <tr class="<%= 'is-order-completed' if @order.finished == true %>">
+                    <td>
+                        <%= @order.name %>
+                    </td>
+                    <td>
+                        <%= @order.producttype %>
+                    </td>
+                    <td>
+                        <%= @order.quantity %>
+                    </td>
+                    <td>
+                        <%= @order.ordertype %>
+                    </td>
+                    <td>
+                        <%= @order.buysell %>
+                    </td>
+                    <td>
+                        <%= @order.platform %>
+                    </td>
+                    <td>
+                        <%= @order.client %>
+                    </td>
+                    <td>
+                        <%= @order.time %> <br/>
+                            <%= @order.created_at.to_date %>
+                    </td>
+                    <td>
+                        <%= @order.finished == true ? "Yes" : "No" %>
+                    </td>
+                </tr>
+        </table>
+</div>

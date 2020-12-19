@@ -1,0 +1,65 @@
+<div style="margin-left: 6%;" class="section">
+    <%= simple_form_for :search, url: orders_path, method: "GET", html: {class: 'form-inline'} do |f| %>
+        <div class="field mb-5">
+            <div class="control">
+                <%= f.input :name,required: false, input_html: { value: "" ,class: "input" }, wrapper: false, label: "Client Name", label_html:{ class: "label" } %>
+            </div>
+        </div>
+        <div class="field mb-5">
+            <div class="control">
+                <%= f.input :producttype, required: false , input_html: { value: "" ,class: "input" }, wrapper: false, label: "Product Type" , label_html:{ class: "label" } %>
+            </div>
+        </div>
+        <div class="field mb-5">
+            <div class="control">
+                <%= f.input :quantity, required: false , input_html: { value: 0 ,class: "input" }, wrapper: false,label: "Quantity (In Ounces)", label_html:{ class: "label" } %>
+            </div>
+        </div>
+        <div class="field mb-5">
+            <div class="control">
+                <%= f.input :ordertype, required: false , :collection => ['Kg', 'Gram','TT Bar', 'Ounces'], input_html: { class: "input" }, wrapper: false, label: "Order Type" , label_html:{ class: "label" } %>
+            </div>
+        </div>
+        <div class="field mb-5">
+            <div class="control">
+                <%= f.input :buysell, required: false , :collection => ['Buy', 'Sell'], input_html: { class: "input" }, wrapper: false, label: "Buy Or Sell" , label_html:{ class: "label" } %>
+            </div>
+        </div>
+        <div class="field mb-5">
+            <div class="control">
+                <%= f.input :platform, required: false , input_html: { value: 0 ,class: "input" }, wrapper: false, label: "Platform Price" , label_html:{ class: "label" } %>
+            </div>
+        </div>
+        <div class="field mb-5">
+            <div class="control">
+                <%= f.input :client, required: false , input_html: { value: 0 , class: "input" }, wrapper: false, label: "Client Price", label_html:{ class: "label" } %>
+            </div>
+        </div>
+        <div class="field mb-5">
+            <div class="control">
+                <%= f.input :finished, required: false , :collection => ['Yes', 'No'], input_html: { class: "input" }, wrapper: false, label: "Completed" , label_html:{ class: "label" } %>
+            </div>
+        </div>
+        <div class="field mb-5">
+            <div class="control">
+                <%= f.input :in_account, required: false , :collection => ['Yes', 'No'], input_html: { class: "input" }, wrapper: false, label: "In Accounts" , label_html:{ class: "label" } %>
+            </div>
+        </div>
+        <div class="field mb-5">
+            <div class="control">
+                <%= f.input :time, required: false , input_html: { value: "" ,class: "input" }, wrapper: false, label: "Time" , label_html:{ class: "label" } %>
+            </div>
+        </div>
+        <div class="field mb-5">
+            <div class="control">
+                <%= f.input :startdate, required: false , input_html: { value: "" ,class: "input" }, wrapper: false, label: "Start Date" , label_html:{ class: "label" } %>
+            </div>
+        </div>
+        <div class="field mb-5">
+            <div class="control">
+                <%= f.input :enddate, required: false , input_html: { value: "" ,class: "input" }, wrapper: false, label: "End Date" , label_html:{ class: "label" } %>
+            </div>
+        </div>
+        <%= f.submit "Search", class: "button is-link is-pulled-right mt-2" %>
+            <% end %>
+</div>

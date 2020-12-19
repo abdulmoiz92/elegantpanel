@@ -43,6 +43,12 @@
         </div>
         <div class="field mb-5">
             <div class="control">
+                <label class="label">In Accounts</label>
+                <%= f.check_box :in_account, input_html: { class: "input" }, wrapper: false%>
+            </div>
+        </div>
+        <div class="field mb-5">
+            <div class="control">
                 <%= f.input :time, required: true , input_html: { class: "input" }, wrapper: false, label_html:{ class: "label" } %>
             </div>
         </div>

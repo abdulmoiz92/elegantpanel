@@ -1,0 +1,25 @@
+<div style="margin-left: 6%;" class="section">
+    <%= simple_form_for :search, url: root_path, method: "GET", html: {class: 'form-inline'} do |f| %>
+        <div class="field mb-5">
+            <div class="control">
+                <%= f.input :name,required: false, input_html: { value: "" ,class: "input" }, wrapper: false, label: "Client Name", label_html:{ class: "label" } %>
+            </div>
+        </div>
+        <div class="field mb-5">
+            <div class="control">
+                <%= f.input :producttype, required: false , input_html: { value: "" ,class: "input" }, wrapper: false, label: "Product Type" , label_html:{ class: "label" } %>
+            </div>
+        </div>
+        <div class="field mb-5">
+            <div class="control">
+                <%= f.input :startdate, required: false , input_html: { value: "" ,class: "input" }, wrapper: false, label: "Start Date" , label_html:{ class: "label" } %>
+            </div>
+        </div>
+        <div class="field mb-5">
+            <div class="control">
+                <%= f.input :enddate, required: false , input_html: { value: "" ,class: "input" }, wrapper: false, label: "End Date" , label_html:{ class: "label" } %>
+            </div>
+        </div>
+        <%= f.submit "Filter", class: "button is-link is-pulled-right mt-2" %>
+            <% end %>
+</div>
